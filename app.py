@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 st.set_page_config(page_title="Proyecto Final", layout="wide")
-st.title("Consumo de Alcohol de Estudiantes")
+st.title("Consumo de Alcohol en Estudiantes")
 
 @st.cache_data
 def load_data():
