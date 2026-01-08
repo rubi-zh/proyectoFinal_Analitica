@@ -40,7 +40,7 @@ if len(df_filtrado) == 0:
     st.stop()
 
 #Indicadores
-col1, col2, col3 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     promedio_g3 = df_filtrado['G3'].mean()
