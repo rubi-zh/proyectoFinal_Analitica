@@ -130,7 +130,7 @@ with col2:
 
     fig_edu = px.box(
         df_plot,
-        x='edu_prom_padres_label',
+        x='edu_prom_padres',
         y='G3',
         title="Educación de los Padres vs Calificación Final",
         labels={'G3': 'Calificación Final'}
