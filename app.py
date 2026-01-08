@@ -108,38 +108,18 @@ with col2:
     )
     st.plotly_chart(fig_evol, use_container_width=True)
 
-col1, col2 = st.columns(2)
+count = df_filtrado.groupby(['sex', 'rendimiento']).size().reset_index(name='count')
+fig_sex = px.bar(
+    count,
+    x='rendimiento',
+    y='count',
+    color='sex',
+    barmode='group',
+    title="Rendimiento por Sexo",
+    labels={'count': 'Número de Estudiantes'}
+)
+st.plotly_chart(fig_sex, use_container_width=True)
 
-with col1:
-    count = df_filtrado.groupby(['sex', 'rendimiento']).size().reset_index(name='count')
-    fig_sex = px.bar(
-        count,
-        x='rendimiento',
-        y='count',
-        color='sex',
-        barmode='group',
-        title="Rendimiento por Sexo",
-        labels={'count': 'Número de Estudiantes'}
-    )
-    st.plotly_chart(fig_sex, use_container_width=True)
-
-with col2:
-    edu_etiquetas = {0: 'Ninguna', 1: 'Primaria', 2: '5°–9°', 3: 'Secundaria', 4: 'Superior'}
-    df_plot = df_filtrado.copy()
-    df_plot['edu_prom_padres'] = df_plot['edu_prom_padres'].map(edu_etiquetas)
-
-    fig_edu = px.box(
-        df_plot,
-        x='edu_prom_padres',
-        y='G3',
-        title="Educación de los Padres vs Calificación Final",
-        labels={'G3': 'Calificación Final'}
-    )
-    fig_edu.update_xaxes(
-        categoryorder='array',
-        categoryarray=['Ninguna', 'Primaria', '5°–9°', 'Secundaria', 'Superior']
-    )
-    st.plotly_chart(fig_edu, use_container_width=True)
 
 st.markdown("---")
 
