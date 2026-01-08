@@ -162,30 +162,21 @@ with col1:
     st.plotly_chart(fig_alc, use_container_width=True)
 
 with col2:
-    fig_health = px.box(
-        df_filtrado,
-        x='health',
-        y='absences',
-        title="Estado de Salud vs Ausencias Escolares",
-        labels={'health': 'Salud (1=muy mala, 5=muy buena)'}
+    alc_promedio = pd.DataFrame({
+        'Tipo': ['Entre semana', 'Fin de semana'],
+        'Promedio': [
+            df_filtrado['Dalc'].mean(),
+            df_filtrado['Walc'].mean()
+        ]
+    })
+    fig_dalc_walc = px.bar(
+        alc_promedio,
+        x='Tipo',
+        y='Promedio',
+        text='Promedio',
+        title="Consumo de Alcohol: Entre Semana vs Fin de Semana"
     )
-    st.plotly_chart(fig_health, use_container_width=True)
-
-alc_promedio = pd.DataFrame({
-    'Tipo': ['Entre semana', 'Fin de semana'],
-    'Promedio': [
-        df_filtrado['Dalc'].mean(),
-        df_filtrado['Walc'].mean()
-    ]
-})
-fig_dalc_walc = px.bar(
-    alc_promedio,
-    x='Tipo',
-    y='Promedio',
-    text='Promedio',
-    title="Consumo de Alcohol: Entre Semana vs Fin de Semana"
-)
-st.plotly_chart(fig_dalc_walc, use_container_width=True)
+    st.plotly_chart(fig_dalc_walc, use_container_width=True)
 
 st.markdown("---")
 st.subheader("Análisis de Consumo por Sexo")
