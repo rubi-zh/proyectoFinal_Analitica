@@ -126,7 +126,7 @@ with col1:
 with col2:
     edu_etiquetas = {0: 'Ninguna', 1: 'Primaria', 2: '5°–9°', 3: 'Secundaria', 4: 'Superior'}
     df_plot = df_filtrado.copy()
-    df_plot['edu_prom_padres_label'] = df_plot['edu_prom_padres'].map(edu_etiquetas)
+    df_plot['edu_prom_padres'] = df_plot['edu_prom_padres'].map(edu_etiquetas)
 
     fig_edu = px.box(
         df_plot,
