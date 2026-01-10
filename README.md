@@ -26,7 +26,7 @@ Examinar la relación entre el rendimiento académico de los alumnos y el consum
 
 ## Requisitos e Instalación
 
-Se requiere **Python 3.12 o superior**.
+Se requiere **Python 3.13 o superior**.
 
 1. Clonar el repositorio:
    ```bash
