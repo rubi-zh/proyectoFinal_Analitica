@@ -80,5 +80,5 @@ proyectoFinal_Analitica/
 ├── requirements.txt                # Dependencias
 ├── student_por.csv                 # Dataset original (649 registros, 33 variables)
 ├── student_por_preprocesado.csv    # Dataset procesado con variables derivadas
-├── ProyectoFinal_Analitica.ipynb   # Notebook completo con todo el análisis
-└── ProyectoFinal.pdf               # Documento formal del proyecto (31 páginas)
+├── ProyectoFinal_Analitica.ipynb   # Notebook
+└── ProyectoFinal.pdf               # Documento del proyecto
